@@ -22,13 +22,6 @@ steps:
     ng build
   displayName: 'npm install and build'
 
-- task: CmdLine@2
-  inputs:
-    script: |
-      dir ponos_angular
-      cd ponos_angular/dist/ponos_angular
-      dir
-
 - task: CopyFiles@2
   inputs:
     SourceFolder: 'ponos_angular/dist/ponos_angular'
@@ -38,6 +31,6 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)/ponos'
-    ArtifactName: 'drop_ponos_web'
+    ArtifactName: 'ponos_web_angular'
     publishLocation: 'Container'
     
