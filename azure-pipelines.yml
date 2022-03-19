@@ -21,17 +21,8 @@ steps:
     npm install
     ng build
   displayName: 'npm install and build'
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
-    verbose: true
 
-- task: PublishBuildArtifacts@1
+- task: CmdLine@2
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'ponos_web'
-    publishLocation: 'Container'
+    script: |
+      dir
