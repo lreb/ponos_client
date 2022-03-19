@@ -37,7 +37,7 @@ steps:
     
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)ponos'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/ponos'
     ArtifactName: 'drop_ponos_web'
     publishLocation: 'Container'
     
