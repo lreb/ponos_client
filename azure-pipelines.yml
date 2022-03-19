@@ -29,11 +29,15 @@ steps:
       cd ponos_angular/dist/ponos_angular
       dir
 
-- task: ArchiveFiles@2
+- task: CopyFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)/ponos_angular/dist/ponos_angular'
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
-    verbose: true
+    SourceFolder: 'ponos_angular/dist/ponos_angular'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/ponos'
+    
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)ponos'
+    ArtifactName: 'drop_ponos_web'
+    publishLocation: 'Container'
+    
