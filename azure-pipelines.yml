@@ -28,3 +28,12 @@ steps:
       dir ponos_angular
       cd ponos_angular/dist/ponos_angular
       dir
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)/ponos_angular/dist/ponos_angular'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+    verbose: true
