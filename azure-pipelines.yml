@@ -27,10 +27,10 @@ steps:
     SourceFolder: 'ponos_angular/dist/ponos_angular'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)/ponos'
-    
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)/ponos'
     ArtifactName: 'ponos_web_angular'
     publishLocation: 'Container'
-    
+
