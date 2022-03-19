@@ -25,4 +25,6 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
+      dir ponos_angular
+      cd ponos_angular/dist/ponos_angular
       dir
